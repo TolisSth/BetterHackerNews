@@ -3,6 +3,7 @@
 
 import { useEffect, useState } from 'react';
 import NewsCard from './NewsCard';
+import { Loader } from 'lucide-react';
 
 export default function NewsList() {
   const [titles, setTitles] = useState<string[] | null>(null);
@@ -28,8 +29,15 @@ export default function NewsList() {
     fetchData();
   }, []);
 
-  if (error) return <p className="text-red-500">{error}</p>;
-  if (!titles || !links) return <p>Loading...</p>;
+ if (error) return <p className="text-red-500">{error}</p>;
+ if (!titles || !links) {
+  return (
+    <p className="flex items-center gap-2">
+      <Loader className="animate-spin w-4 h-4" />
+      Fetching your news...
+    </p>
+   );
+ }
 
   return (
     <ul className="list-none pl-0 space-y-4">

@@ -1,6 +1,6 @@
 // Author: Apostolos Chalis 2025
 import React from 'react';
-import { ExternalLink } from 'lucide-react'; // optional icon
+import { Link } from 'lucide-react'; 
 
 type NewsCardProps = {
   title: string;
@@ -17,8 +17,8 @@ const NewsCard: React.FC<NewsCardProps> = ({ title, link }) => {
         rel="noopener noreferrer"
         className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium text-sm"
       >
-        <ExternalLink className="w-4 h-4" />
-        <span className="truncate max-w-[90%]">{link}</span>
+        <Link className="w-4 h-4" />
+        <span className="truncate max-w-[90%]"></span>
       </a>
     </div>
   );
